@@ -1,0 +1,41 @@
+{
+  "project": "AI-Powered ART Clinic",
+  "model_name": "Logistic Regression - Candidate B",
+  "purpose": "Early identification of patients at risk of probable ART care interruption",
+  "outcome": "interruption_proxy",
+  "reference_date": "2026-08-31",
+  "cohort_size": 1341,
+  "controls": 1052,
+  "probable_interruptions": 289,
+  "numeric_features": [
+    "age_at_art",
+    "art_start_year"
+  ],
+  "categorical_features": [
+    "Gender",
+    "population_type",
+    "key_population_type",
+    "EnrollmentType",
+    "StartARTRegimen",
+    "StartARTRegimenLine",
+    "bWHOStage"
+  ],
+  "excluded_features": [
+    "bCD4Count",
+    "days_since_last_visit"
+  ],
+  "validation": {
+    "method": "5-fold stratified out-of-fold comparison",
+    "random_state": 42,
+    "oof_roc_auc": 0.8251,
+    "oof_pr_auc": 0.6512,
+    "oof_brier_score": 0.1156,
+    "note": "Exploratory model-selection results; not independent test performance."
+  },
+  "limitations": [
+    "Outcome is a probable interruption proxy, not confirmed loss to follow-up.",
+    "CD4 field definition and missingness require further verification.",
+    "Independent validation and probability calibration assessment remain necessary."
+  ],
+  "created_utc": "2026-10-11T08:12:44.948754+00:00"
+}
